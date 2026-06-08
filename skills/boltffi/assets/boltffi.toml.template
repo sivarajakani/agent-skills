@@ -1,0 +1,22 @@
+[project]
+name = "mylib"
+version = "0.1.0"
+
+[targets]
+apple = true
+android = true
+java = true
+csharp = true
+wasm = true
+
+[build]
+release = true
+
+[targets.android]
+architectures = ["arm64", "armv7", "x86_64", "x86"]
+
+[targets.apple]
+ios_architectures = ["arm64"]
+simulator_architectures = ["arm64", "x86_64"]
+include_macos = true
+macos_architectures = ["arm64", "x86_64"]
