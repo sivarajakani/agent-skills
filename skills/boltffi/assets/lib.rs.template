@@ -1,0 +1,19 @@
+use boltffi::*;
+
+#[data]
+pub struct Point {
+    pub x: f64,
+    pub y: f64,
+}
+
+#[error]
+pub struct ApiError {
+    pub message: String,
+}
+
+#[export]
+pub fn distance(a: Point, b: Point) -> Result<f64, ApiError> {
+    let dx = b.x - a.x;
+    let dy = b.y - a.y;
+    Ok((dx * dx + dy * dy).sqrt())
+}
